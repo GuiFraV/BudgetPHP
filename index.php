@@ -22,6 +22,7 @@
             $description = filter_input(INPUT_POST, "desc");
             $montant = filter_input(INPUT_POST, "montant");
             $date = filter_input(INPUT_POST,"date");
+            $revenu = 1200;
 
             var_dump($date);
 
@@ -37,6 +38,11 @@
                         <td>" . $description . "</td>
                         <td>" . $montant . "€</td>
                         <td>" . $date . "</td>
+                    </tr>
+
+                    <tr>
+                        <td> Revenus </td>
+                        <td>" . $revenu . "€</td>
                     </tr>
                 </table>
 
