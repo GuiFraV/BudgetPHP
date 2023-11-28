@@ -21,6 +21,8 @@
         try {
             $query = "SELECT * FROM budget"; 
             $stmt = $pdo->query($query);
+            $total = 0;
+
 
             echo "<table>
                     <tr>
@@ -30,14 +32,17 @@
                     </tr>";
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $total += $row['Montant'];
                 echo "<tr>
                         <td>" . htmlspecialchars($row['Description']) . "</td>
                         <td>" . htmlspecialchars($row['Montant']) . "€</td>
                         <td>" . htmlspecialchars($row['Date']) . "</td>
-                      </tr>";
+                    </tr>";
             }
 
             echo "</table>";
+
+            echo "<p> Le montant total est de " . $total . " €</p>";
 
             $pdo = null;
             $stmt = null;
